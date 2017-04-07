@@ -32,15 +32,15 @@ $mes=$meses[$fecha['mon']-1];
 			
 				<div class="form-group input-group">
 					<span class="input-group-addon">Marca</span>
-					<input class="form-control" type="date" name="marca">
+					<input class="form-control"  required type="date" name="marca">
 				</div>
 				<div class="form-group input-group">
 					<span class="input-group-addon">Fecha de compra</span>
-					<input class="form-control" type="text" name="fecha">
+					<input class="form-control" required type="text" name="fecha">
 				</div>
 				<div class="form-group input-group">
 					<span class="input-group-addon">tipo</span>
-			         <select name="articulos" class="form-control">
+			         <select required name="articulos" class="form-control">
 						  <option value="tv">Tv</option>
 						  <option value="microoondas">Microondas</option>
 						  <option value="radio">Radio</option>
@@ -49,15 +49,15 @@ $mes=$meses[$fecha['mon']-1];
 				</div>
 				<div class="form-group input-group">
 					<span class="input-group-addon">peso</span>
-					<input class="form-control" type="text" name="peso">
+					<input class="form-control" type="text" required name="peso">
 				</div>
 				<div class="form-group input-group">
 					<span class="input-group-addon">Color</span>
-				<input type="text" class="form-control" name="color">
+				<input type="text" class="form-control" required name="color">
 				</div>
 				<div class="form-group input-group">
 					<span class="input-group-addon">Comentario</span>
-					<input class="form-control" type="textarea" name="comentario">
+					<input class="form-control"  required type="textarea" name="comentario">
 				</div>
 				<div class="form-group input-group">
 					<span class="input-group-addon">Foto</span>
@@ -82,7 +82,7 @@ $mes=$meses[$fecha['mon']-1];
 		if(isset($marca) && isset($fecha) && isset($articulos) && isset($peso) && isset($color) && isset($comentario)){
  
 		$nombre_imagen =$_FILES['foto']['name'];
-		$nombre_carpeta = $_SERVER['DOCUMENT_ROOT'].'https://praticando.000webhostapp.com/registrar.php/tarea10/subir/';
+		$nombre_carpeta = $_SERVER['DOCUMENT_ROOT'].'/subir/';
 		move_uploaded_file($_FILES['foto']['tmp_name'],$nombre_carpeta.$nombre_imagen);
 	$db = new database(DB_HOST,DB_USER,DB_PASS,DB_NAME);
 
@@ -131,7 +131,7 @@ $mes=$meses[$fecha['mon']-1];
 			<td>$peso</td>
 			<td>$color</td>
 			<td>$comentario</td>
-			<td><img src='/tarea10/subir/$foto' width='100'/></td>
+			<td><img src='/subir/$foto' width='100'/></td>
 			</tr>
 			";
 		}
